@@ -16,3 +16,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/dragons/astralis/flight/
+    - assets/images/enemies/goblin_sky_raider/
+    - assets/images/enemies/harpy/
+    - assets/images/enemies/shadow_wyvern/

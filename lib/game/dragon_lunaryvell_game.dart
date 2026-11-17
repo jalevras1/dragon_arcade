@@ -58,10 +58,15 @@ class _Foe {
       required this.hp,
       required this.radius,
       required this.speed,
-      this.boss = false});
-  double x, y, hp, radius, speed;
+      this.boss = false,
+      this.typeIndex = 0,
+      this.spriteSize = 60});
+  double x, y, hp, radius, speed, spriteSize;
   bool boss;
+  int typeIndex;
   double fireClock = 0;
+  double animationClock = 0;
+  int animationFrame = 0;
 }
 
 class DragonLunaryvellGame extends FlameGame {
@@ -87,6 +92,7 @@ class DragonLunaryvellGame extends FlameGame {
   bool _touching = false, _paused = false, _gameOver = false;
   _Foe? _boss;
   List<ui.Image> _flightFrames = [];
+  List<List<ui.Image>> _enemyFrames = [];
   double _flightClock = 0;
   int _flightFrame = 0;
 
@@ -101,6 +107,14 @@ class DragonLunaryvellGame extends FlameGame {
         ),
       ),
     );
+    _enemyFrames = [
+      await Future.wait(List.generate(4, (i) => images.load(
+          'enemies/goblin_sky_raider/goblin_${i.toString().padLeft(2, '0')}.png'))),
+      await Future.wait(List.generate(3, (i) => images.load(
+          'enemies/harpy/harpy_${i.toString().padLeft(2, '0')}.png'))),
+      await Future.wait(List.generate(3, (i) => images.load(
+          'enemies/shadow_wyvern/shadow_wyvern_${i.toString().padLeft(2, '0')}.png'))),
+    ];
   }
 
   @override
@@ -178,12 +192,18 @@ class DragonLunaryvellGame extends FlameGame {
       if (_spawnClock >= interval) {
         _spawnClock = 0;
         _spawnedThisWave++;
+        final enemyType = _random.nextInt(3);
+        final enemyRadius = [13.0, 15.0, 17.0][enemyType];
+        final enemySpeed = [78.0, 68.0, 58.0][enemyType] + _wave * 4;
+        final enemySize = [56.0, 64.0, 72.0][enemyType];
         _foes.add(_Foe(
           x: 24 + _random.nextDouble() * math.max(1.0, size.x - 48).toDouble(),
           y: -24,
           hp: 1.0 + (_wave ~/ 3),
-          radius: 13 + _random.nextDouble() * 5,
-          speed: 65 + _wave * 4,
+          radius: enemyRadius,
+          speed: enemySpeed,
+          typeIndex: enemyType,
+          spriteSize: enemySize,
         ));
       }
     }
@@ -194,6 +214,16 @@ class DragonLunaryvellGame extends FlameGame {
     _bolts.removeWhere((b) => b.y < -30);
 
     for (final foe in _foes) {
+      if (foe.typeIndex >= 0 && foe.typeIndex < _enemyFrames.length) {
+        final frames = _enemyFrames[foe.typeIndex];
+        if (frames.isNotEmpty) {
+          foe.animationClock += step;
+          while (foe.animationClock >= .14) {
+            foe.animationClock -= .14;
+            foe.animationFrame = (foe.animationFrame + 1) % frames.length;
+          }
+        }
+      }
       foe.y += foe.speed * step;
       foe.x += math.sin((_waveElapsed * 2) + foe.y * .01) * 22 * step;
       foe.fireClock += step;
@@ -430,13 +460,29 @@ class DragonLunaryvellGame extends FlameGame {
             ..style = PaintingStyle.stroke);
     }
     for (final foe in _foes) {
-      canvas.drawCircle(Offset(foe.x, foe.y), foe.radius, red);
-      canvas.drawCircle(
-          Offset(foe.x, foe.y),
-          foe.radius + 4,
-          Paint()
-            ..color = red.color.withOpacity(.18)
-            ..style = PaintingStyle.stroke);
+      if (foe.typeIndex >= 0 && foe.typeIndex < _enemyFrames.length &&
+          _enemyFrames[foe.typeIndex].isNotEmpty) {
+        final frames = _enemyFrames[foe.typeIndex];
+        final frame = frames[foe.animationFrame % frames.length];
+        canvas.drawImageRect(
+          frame,
+          Rect.fromLTWH(0, 0, frame.width.toDouble(), frame.height.toDouble()),
+          Rect.fromCenter(
+            center: Offset(foe.x, foe.y),
+            width: foe.spriteSize,
+            height: foe.spriteSize,
+          ),
+          Paint()..filterQuality = FilterQuality.high,
+        );
+      } else {
+        canvas.drawCircle(Offset(foe.x, foe.y), foe.radius, red);
+        canvas.drawCircle(
+            Offset(foe.x, foe.y),
+            foe.radius + 4,
+            Paint()
+              ..color = red.color.withOpacity(.18)
+              ..style = PaintingStyle.stroke);
+      }
     }
     if (_boss case final boss?) {
       canvas.drawCircle(Offset(boss.x, boss.y), boss.radius + 8,
