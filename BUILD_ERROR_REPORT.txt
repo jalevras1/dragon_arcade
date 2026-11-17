@@ -1,0 +1,103 @@
+[ +181 ms] Unable to locate an Android SDK.
+[  +48 ms] Unable to locate an Android SDK.
+[  +13 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[   +2 ms] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[  +57 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[  +10 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +71 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[  +11 ms] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[   +2 ms] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[  +32 ms] executing: [/workspaces/dragon_arcade/] /home/codespace/flutter/bin/cache/dart-sdk/bin/dart pub --suppress-analytics --directory . check-resolution-up-to-date
+[ +233 ms] Resolution is up-to-date
+[        ] Skipping pub get: resolution up-to-date.
+[ +230 ms] Skipping generating web_plugin_registrant.dart because it is up-to-date.
+[  +49 ms] Generating /workspaces/dragon_arcade/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+[   +5 ms] Skipping generating GeneratedPluginRegistrant.java because it is up-to-date.
+[  +73 ms] generated_plugin_registrant.dart not found. Skipping.
+[   +5 ms] Compiling lib/main.dart for the Web...
+[   +8 ms] Initializing file store
+[  +18 ms] Done initializing file store
+[ +287 ms] Skipping target: web_entrypoint
+[   +6 ms] Skipping target: build_hooks
+[        ] Skipping target: gen_localizations
+[ +994 ms] Skipping target: dart2js
+[   +8 ms] web_static_assets: Starting due to {InvalidatedReasonKind.outputMissing: The following outputs were missing: /workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/flutter.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/flutter.js.map,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/skwasm_heavy.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/skwasm_heavy.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/skwasm.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/skwasm.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/skwasm_heavy.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/canvaskit.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/wimp.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/chromium/canvaskit.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/chromium/canvaskit.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/chromium/canvaskit.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/canvaskit.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/wimp.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/wimp.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/skwasm.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/canvaskit.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/webparagraph/canvaskit.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/webparagraph/canvaskit.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/canvaskit/webparagraph/canvaskit.js}
+[ +500 ms] web_static_assets: Complete
+[  +10 ms] dart2wasm: Starting due to {}
+[   +8 ms] executing: /home/codespace/flutter/bin/cache/dart-sdk/bin/dart compile wasm --packages=/workspaces/dragon_arcade/.dart_tool/package_config.json --extra-compiler-option=--platform=/home/codespace/flutter/bin/cache/flutter_web_sdk/kernel/dart2wasm_platform.dill -Ddart.vm.profile=false -Ddart.vm.product=true --extra-compiler-option=--delete-tostring-package-uri=dart:ui --extra-compiler-option=--delete-tostring-package-uri=package:flutter --extra-compiler-option=--import-shared-memory --extra-compiler-option=--shared-memory-max-pages=32768 -DFLUTTER_BUILD_NAME=0.1.0 -DFLUTTER_BUILD_NUMBER=1 -DFLUTTER_VERSION=3.50.0 -DFLUTTER_CHANNEL=stable -DFLUTTER_GIT_URL=https://github.com/flutter/flutter.git -DFLUTTER_FRAMEWORK_REVISION=ab2912035e -DFLUTTER_ENGINE_REVISION=371f77202a -DFLUTTER_DART_VERSION=3.14.0 -DFLUTTER_WEB_USE_SKIA=false -DFLUTTER_WEB_USE_SKWASM=true -DFLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/371f77202a73e8dff57a8b3bff75bca55c090aee/ --extra-compiler-option=--depfile=/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/dart2wasm.d --recorded-uses=/workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/recorded_uses_wasm.json -O2 --strip-wasm --no-source-maps --minify --extra-compiler-option=--dry-run -o /workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/main.dart.wasm /workspaces/dragon_arcade/.dart_tool/flutter_build/4d2b5cbdb992ecca86dbf006ce4fd861/main.dart
+[+6207 ms] Unexpected wasm dry run failure (241):
+[   +4 ms] Use --no-wasm-dry-run to disable these warnings.
+[        ] dart2wasm: Complete
+[   +5 ms] invalidated build due to missing files: /workspaces/dragon_arcade/web/*/index.html, /workspaces/dragon_arcade/web/flutter_bootstrap.js
+[   +3 ms] Skipping target: link_hooks
+[        ] web_templated_files: Starting due to {InvalidatedReasonKind.outputMissing: The following outputs were missing: /workspaces/dragon_arcade/build/web/*/index.html, InvalidatedReasonKind.inputMissing: The following inputs were missing: /workspaces/dragon_arcade/web/*/index.html,/workspaces/dragon_arcade/web/flutter_bootstrap.js}
+[ +720 ms] web_templated_files: Complete
+[   +3 ms] invalidated build due to missing files: /workspaces/dragon_arcade/DOES_NOT_EXIST_RERUN_FOR_WILDCARD142289616
+[ +235 ms] web_release_bundle: Starting due to {InvalidatedReasonKind.outputMissing: The following outputs were missing: /workspaces/dragon_arcade/build/web/recorded_uses_js.json, InvalidatedReasonKind.inputMissing: The following inputs were missing: /workspaces/dragon_arcade/DOES_NOT_EXIST_RERUN_FOR_WILDCARD142289616, InvalidatedReasonKind.inputChanged: The following inputs have updated contents: /workspaces/dragon_arcade/assets/images/enemies/goblin_sky_raider/goblin_01.png,/workspaces/dragon_arcade/assets/images/enemies/goblin_sky_raider/goblin_03.png,/workspaces/dragon_arcade/assets/images/enemies/goblin_sky_raider/goblin_02.png,/workspaces/dragon_arcade/assets/images/enemies/goblin_sky_raider/goblin_00.png,/workspaces/dragon_arcade/assets/images/enemies/harpy/harpy_01.png,/workspaces/dragon_arcade/assets/images/enemies/harpy/harpy_02.png,/workspaces/dragon_arcade/assets/images/enemies/harpy/harpy_00.png,/workspaces/dragon_arcade/assets/images/enemies/shadow_wyvern/shadow_wyvern_02.png,/workspaces/dragon_arcade/assets/images/enemies/shadow_wyvern/shadow_wyvern_01.png,/workspaces/dragon_arcade/assets/images/enemies/shadow_wyvern/shadow_wyvern_00.png}
+[ +272 ms] Manifest contained wildcard assets. Inserting missing file into build graph to force rerun. for more information see #56466.
+[  +52 ms] impellerc command: [/home/codespace/flutter/bin/cache/artifacts/engine/linux-x64/impellerc, --sksl, --iplr, --json, --sl=/workspaces/dragon_arcade/build/web/assets/shaders/ink_sparkle.frag, --spirv=/workspaces/dragon_arcade/build/web/assets/shaders/ink_sparkle.frag.spirv, --input=/home/codespace/flutter/packages/flutter/lib/src/material/shaders/ink_sparkle.frag, --input-type=frag, --include=/home/codespace/flutter/packages/flutter/lib/src/material/shaders, --include=/home/codespace/flutter/bin/cache/artifacts/engine/linux-x64/shader_lib]
+[   +1 ms] impellerc command: [/home/codespace/flutter/bin/cache/artifacts/engine/linux-x64/impellerc, --sksl, --iplr, --json, --sl=/workspaces/dragon_arcade/build/web/assets/shaders/stretch_effect.frag, --spirv=/workspaces/dragon_arcade/build/web/assets/shaders/stretch_effect.frag.spirv, --input=/home/codespace/flutter/packages/flutter/lib/src/widgets/shaders/stretch_effect.frag, --input-type=frag, --include=/home/codespace/flutter/packages/flutter/lib/src/widgets/shaders, --include=/home/codespace/flutter/bin/cache/artifacts/engine/linux-x64/shader_lib]
+[  +99 ms] Running font-subset: /home/codespace/flutter/bin/cache/artifacts/engine/linux-x64/font-subset /workspaces/dragon_arcade/build/web/assets/fonts/MaterialIcons-Regular.otf /home/codespace/flutter/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf, using codepoints 57527 58492 58571 58659 optional:32
+[  +53 ms] Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 1240 bytes (99.9% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+[ +223 ms] web_release_bundle: Complete
+[ +304 ms] web_service_worker: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: /workspaces/dragon_arcade/build/web/flutter_bootstrap.js}
+[  +16 ms] web_service_worker: Complete
+[   +3 ms] Persisting file store
+[  +10 ms] Done persisting file store
+[  +30 ms] Compiling lib/main.dart for the Web... (completed in 10.1s)
+[        ] ✓ Built build/web
+[   +1 ms] "flutter web" took 10,864ms.
+[   +1 ms] Running 2 shutdown hooks
+[        ] Shutdown hooks complete
+[        ] exiting with code 0
