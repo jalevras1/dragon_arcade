@@ -1,0 +1,19 @@
+Analyzing dragon_arcade...                                      
+
+   info • The import of 'package:flame/components.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flame/game.dart'. Try removing the import directive • lib/game/dragon_lunaryvell_game.dart:3:8 • unnecessary_import
+   info • The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart'. Try removing the import directive • lib/game/dragon_lunaryvell_game.dart:4:8 • unnecessary_import
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_lunaryvell_game.dart:5:1 • deprecated_member_use
+warning • A value for optional parameter 'speed' isn't ever given. Try removing the unused parameter • lib/game/dragon_lunaryvell_game.dart:42:31 • unused_element_parameter
+warning • The value of the field '_specialClock' isn't used. Try removing the field, or using it • lib/game/dragon_lunaryvell_game.dart:83:10 • unused_field
+warning • The value of the field '_defeatedThisWave' isn't used. Try removing the field, or using it • lib/game/dragon_lunaryvell_game.dart:84:29 • unused_field
+  error • Expected to find ';' • lib/game/dragon_lunaryvell_game.dart:127:46 • expected_token
+   info • Unnecessary empty statement. Try removing the empty statement or restructuring the code • lib/game/dragon_lunaryvell_game.dart:130:6 • empty_statements
+  error • The argument type 'int' can't be assigned to the parameter type 'double'.  • lib/game/dragon_lunaryvell_game.dart:160:15 • argument_type_not_assignable
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_lunaryvell_game.dart:414:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_lunaryvell_game.dart:419:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_lunaryvell_game.dart:480:60 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_profile.dart:1:1 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/main.dart:1:1 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/main.dart:74:55 • deprecated_member_use
+
+15 issues found. (ran in 7.8s)
