@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-import 'dart:ui' as ui;
 import 'package:flame/game.dart';
 import 'package:flame/components.dart' show Vector2;
 import 'package:flutter/foundation.dart';
@@ -86,22 +85,6 @@ class DragonLunaryvellGame extends FlameGame {
   int _score = 0, _wave = 1, _health = 3;
   bool _touching = false, _paused = false, _gameOver = false;
   _Foe? _boss;
-  List<ui.Image> _flightFrames = [];
-  double _flightClock = 0;
-  int _flightFrame = 0;
-
-  @override
-  Future<void> onLoad() async {
-    await super.onLoad();
-    _flightFrames = await Future.wait<ui.Image>(
-      List.generate(
-        8,
-        (i) => images.load(
-          'dragons/astralis/flight/astralis_flight_wing_${i.toString().padLeft(2, '0')}.png',
-        ),
-      ),
-    );
-  }
 
   @override
   void onRemove() {
@@ -142,13 +125,6 @@ class DragonLunaryvellGame extends FlameGame {
     super.update(dt);
     if (_paused || _gameOver || size.x <= 0 || size.y <= 0) return;
     final step = dt.clamp(0.0, .05).toDouble();
-    if (_flightFrames.isNotEmpty) {
-      _flightClock += step;
-      if (_flightClock >= .1) {
-        _flightClock -= .1;
-        _flightFrame = (_flightFrame + 1) % _flightFrames.length;
-      }
-    }
     if (_specialCooldown > 0) {
       _specialCooldown = math.max(0.0, _specialCooldown - step).toDouble();
     }
@@ -452,20 +428,16 @@ class DragonLunaryvellGame extends FlameGame {
               const Radius.circular(4)),
           red);
     }
+    // Temporary vector stand-in. Replace with approved transparent 2D sprite frames.
+    final path = Path()
+      ..moveTo(_playerX, _playerY - 22)
+      ..quadraticBezierTo(_playerX + 22, _playerY + 5, _playerX, _playerY + 15)
+      ..quadraticBezierTo(_playerX - 22, _playerY + 5, _playerX, _playerY - 22)
+      ..close();
     if (_playerInvulnerable <= 0 || (_playerInvulnerable * 12).floor().isEven) {
-      if (_flightFrames.isNotEmpty) {
-        final frame = _flightFrames[_flightFrame];
-        canvas.drawImageRect(
-          frame,
-          Rect.fromLTWH(0, 0, frame.width.toDouble(), frame.height.toDouble()),
-          Rect.fromCenter(
-            center: Offset(_playerX, _playerY),
-            width: 86,
-            height: 114,
-          ),
-          Paint()..filterQuality = FilterQuality.high,
-        );
-      }
+      canvas.drawPath(path, player);
+    } else {
+      canvas.drawPath(path, Paint()..color = const Color(0x88FFFFFF));
     }
     if (_playerInvulnerable > 0) {
       canvas.drawCircle(
