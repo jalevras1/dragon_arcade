@@ -1,0 +1,4 @@
+Compiling lib/main.dart for the Web...                          
+Target dart2js failed: Error: Failed to compile application for the Web.
+Compiling lib/main.dart for the Web...                             13.9s
+Error: Failed to compile application for the Web.
