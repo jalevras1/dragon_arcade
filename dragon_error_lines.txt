@@ -1,0 +1,46 @@
+   120	    _publishHud(force: true);
+   121	  }
+   122	
+   123	  @override
+   124	  void update(double dt) {
+   125	    super.update(dt);
+   126	    if (_paused || _gameOver || size.x <= 0 || size.y <= 0) return;
+   127	    final step = dt.clamp(0.0, .05).toDouble()
+   128	    if (_specialCooldown > 0) {
+   129	      _specialCooldown = math.max(0.0, _specialCooldown - step).toDouble();
+   130	    };
+   131	    _waveElapsed += step;
+   132	    if (_playerInvulnerable > 0) {
+   133	      _playerInvulnerable =
+   134	          math.max(0.0, _playerInvulnerable - step).toDouble();
+   135	    }
+   136	
+   137	    if (_touching) {
+   138	      final blend = (step * 8).clamp(0.0, 1.0).toDouble();
+   139	      _playerX += (_targetX - _playerX) * blend;
+   140	      _playerY += (_targetY - _playerY) * blend;
+   141	    }
+   142	
+   143	    _fireClock += step;
+   144	    if (_fireClock >= .22) {
+   145	      _fireClock = 0;
+   146	      _bolts.add(_Bolt(_playerX, _playerY - 22));
+   147	    }
+   148	
+   149	    final quota = 7 + _wave * 2;
+   150	    final bossWave = _wave % 5 == 0;
+   151	    if (_boss == null && _spawnedThisWave < quota) {
+   152	      _spawnClock += step;
+   153	      final interval = math.max(.32, .95 - _wave * .035);
+   154	      if (_spawnClock >= interval) {
+   155	        _spawnClock = 0;
+   156	        _spawnedThisWave++;
+   157	        _foes.add(_Foe(
+   158	          x: 24 + _random.nextDouble() * math.max(1.0, size.x - 48).toDouble(),
+   159	          y: -24,
+   160	          hp: 1 + (_wave ~/ 3),
+   161	          radius: 13 + _random.nextDouble() * 5,
+   162	          speed: 65 + _wave * 4,
+   163	        ));
+   164	      }
+   165	    }
