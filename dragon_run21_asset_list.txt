@@ -1,0 +1,16 @@
+/tmp/dragon_run21_assets/README.md
+/tmp/dragon_run21_assets/assets/astralis/flight/atlas/astralis_flight_wing_4x2.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_00.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_01.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_02.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_03.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_04.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_05.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_06.png
+/tmp/dragon_run21_assets/assets/astralis/flight/frames/astralis_flight_wing_07.png
+/tmp/dragon_run21_assets/docs/ASTRALIS_FLIGHT_WING_CYCLE_STATUS.md
+/tmp/dragon_run21_assets/flutter_assets/assets/images/dragons/astralis/astralis_flight_wing_4x2.png
+/tmp/dragon_run21_assets/metadata/astralis_flight_wing_atlas.json
+/tmp/dragon_run21_assets/metadata/validation_report.json
+/tmp/dragon_run21_assets/previews/astralis_flight_wing_contact.png
+/tmp/dragon_run21_assets/source/astralis_flight_wing_source.png
