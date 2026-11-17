@@ -1,0 +1,13 @@
+00:00 +0: loading /workspaces/dragon_arcade/test/dragon_profile_test.dart
+00:00 +0: /workspaces/dragon_arcade/test/dragon_profile_test.dart: all six approved dragons are present exactly once
+00:00 +1: /workspaces/dragon_arcade/test/dragon_profile_test.dart: every dragon has a distinct special ability
+00:00 +2: /workspaces/dragon_arcade/test/dragon_profile_test.dart: stats remain within the five-point design scale
+00:00 +3: loading /workspaces/dragon_arcade/test/widget_test.dart
+00:01 +3: /workspaces/dragon_arcade/test/widget_test.dart: game app starts and displays title HUD
+00:02 +4: All tests passed!
+Compiling lib/main.dart for the Web...                          
+Unexpected wasm dry run failure (241):
+Use --no-wasm-dry-run to disable these warnings.
+Target dart2js failed: Error: Failed to compile application for the Web.
+Compiling lib/main.dart for the Web...                             23.0s
+Error: Failed to compile application for the Web.
