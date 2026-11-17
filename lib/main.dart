@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flame/game_widget.dart';
+import 'package:flame/game.dart';
 import 'game/dragon_lunaryvell_game.dart';
 
 void main() {

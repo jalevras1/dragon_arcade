@@ -124,7 +124,7 @@ class DragonLunaryvellGame extends FlameGame {
   void update(double dt) {
     super.update(dt);
     if (_paused || _gameOver || size.x <= 0 || size.y <= 0) return;
-    final step = dt.clamp(0.0, .05);
+    final step = dt.clamp(0.0, .05).toDouble();
     _waveElapsed += step;
     if (_playerInvulnerable > 0) {
       _playerInvulnerable =
