@@ -125,6 +125,9 @@ class DragonLunaryvellGame extends FlameGame {
     super.update(dt);
     if (_paused || _gameOver || size.x <= 0 || size.y <= 0) return;
     final step = dt.clamp(0.0, .05).toDouble();
+    if (_specialCooldown > 0) {
+      _specialCooldown = math.max(0.0, _specialCooldown - step).toDouble();
+    }
     _waveElapsed += step;
     if (_playerInvulnerable > 0) {
       _playerInvulnerable =
@@ -154,7 +157,7 @@ class DragonLunaryvellGame extends FlameGame {
         _foes.add(_Foe(
           x: 24 + _random.nextDouble() * math.max(1.0, size.x - 48).toDouble(),
           y: -24,
-          hp: 1 + (_wave ~/ 3),
+          hp: 1.0 + (_wave ~/ 3),
           radius: 13 + _random.nextDouble() * 5,
           speed: 65 + _wave * 4,
         ));
