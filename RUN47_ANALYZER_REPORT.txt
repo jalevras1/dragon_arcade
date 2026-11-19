@@ -31,7 +31,7 @@ Analyzing 10 items...
    info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/ui/dragon_shell.dart:254:62 • curly_braces_in_flow_control_structures
    info • Unnecessary 'const' keyword. Try removing the keyword • lib/ui/dragon_shell.dart:1292:30 • unnecessary_const
 
-16 issues found. (ran in 6.0s)
+16 issues found. (ran in 5.0s)
 
 RUN 47 FAILED: Check failed, return code 1: /home/codespace/flutter/bin/flutter analyze --no-fatal-infos --no-fatal-warnings lib/game/dragon_lunaryvell_game.dart lib/game/boss_encounter_fx.dart lib/game/boss_encounter_rules.dart lib/game/run47_cinematic_story.dart lib/game/run47_relic_rules.dart lib/game/run47_audio.dart lib/game/run47_audio_stub.dart lib/game/run47_audio_web.dart lib/ui/dragon_shell.dart test/run47_story_relics_test.dart
 Restoring the previous working Run 46 game and website...
