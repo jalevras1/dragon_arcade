@@ -1,3 +1,4 @@
+import 'dart:async' show unawaited;
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flame/game.dart';
@@ -71,7 +72,7 @@ class _Foe {
 
 class DragonLunaryvellGame extends FlameGame {
   DragonLunaryvellGame({this.dragon = DragonProfile.astralis});
-  final DragonProfile dragon;
+  DragonProfile dragon;
   final ValueNotifier<DragonHudState> hud =
       ValueNotifier(const DragonHudState());
   final List<_Bolt> _bolts = [];
@@ -95,6 +96,24 @@ class DragonLunaryvellGame extends FlameGame {
   List<List<ui.Image>> _enemyFrames = [];
   double _flightClock = 0;
   int _flightFrame = 0;
+  final Map<String, ui.Image> _run31DragonStills = {};
+  final Map<String, ui.Image> _run31AbilityImages = {};
+  ui.Image? _run31BossImage;
+  static const Map<String, String> _run31DragonPaths = {
+    'temperstryx': 'run31/dragons/tempestryx_flight_base.png',
+    'ignivar': 'run31/dragons/ignivar_flight_base.png',
+    'nyxariel': 'run31/dragons/nyxariel_flight_base.png',
+    'solarion': 'run31/dragons/solarion_flight_base.png',
+    'aquaryth': 'run31/dragons/aquaryth_flight_base.png',
+  };
+  static const Map<String, String> _run31AbilityPaths = {
+    'astralis': 'run31/abilities/astralis_celestial_nova.png',
+    'temperstryx': 'run31/abilities/tempestryx_lightning_dash.png',
+    'ignivar': 'run31/abilities/ignivar_dragonfire_barrage.png',
+    'nyxariel': 'run31/abilities/nyxariel_void_shift.png',
+    'solarion': 'run31/abilities/solarion_solar_collapse.png',
+    'aquaryth': 'run31/abilities/aquaryth_tidal_vortex.png',
+  };
 
   @override
   Future<void> onLoad() async {
@@ -115,6 +134,26 @@ class DragonLunaryvellGame extends FlameGame {
       await Future.wait(List.generate(3, (i) => images.load(
           'enemies/shadow_wyvern/shadow_wyvern_${i.toString().padLeft(2, '0')}.png'))),
     ];
+    // Decode optional Run 31 artwork in the background, not on the critical
+    // path for the existing eight-frame ASTRALIS animation.
+    unawaited(_preloadRun31Assets());
+  }
+
+  Future<void> _preloadRun31Assets() async {
+    // Run 31 artwork is optional at runtime: preserve existing sprites if a
+    // new asset is absent, and keep the ASTRALIS flight cycle untouched.
+    try {
+      _run31BossImage =
+          await images.load('run31/bosses/eclipse_gargoyle_warden.png');
+    } catch (error) {
+      debugPrint('Run 31 boss art unavailable: $error');
+    }
+    try {
+      _run31AbilityImages['astralis'] =
+          await images.load(_run31AbilityPaths['astralis']!);
+    } catch (error) {
+      debugPrint('Run 31 ASTRALIS effect unavailable: $error');
+    }
   }
 
   @override
@@ -145,6 +184,32 @@ class DragonLunaryvellGame extends FlameGame {
 
   void releaseTouch() => _touching = false;
 
+  Future<void> selectDragon(DragonProfile profile) async {
+    if (profile.id == dragon.id) return;
+    // ASTRALIS keeps its proven animated cycle. Other dragon poses are
+    // static until their individual wing-animation sequences are ready.
+    final stillPath = _run31DragonPaths[profile.id];
+    if (stillPath != null && !_run31DragonStills.containsKey(profile.id)) {
+      try {
+        _run31DragonStills[profile.id] = await images.load(stillPath);
+      } catch (error) {
+        debugPrint('Run 31 dragon art unavailable: $error');
+        return;
+      }
+    }
+    final effectPath = _run31AbilityPaths[profile.id];
+    if (effectPath != null && !_run31AbilityImages.containsKey(profile.id)) {
+      try {
+        _run31AbilityImages[profile.id] = await images.load(effectPath);
+      } catch (error) {
+        debugPrint('Run 31 ability art unavailable: $error');
+      }
+    }
+    dragon = profile;
+    _specialClock = 0;
+    _publishHud(force: true);
+  }
+
   void togglePause() {
     if (_gameOver) return;
     _paused = !_paused;
@@ -165,6 +230,9 @@ class DragonLunaryvellGame extends FlameGame {
     }
     if (_specialCooldown > 0) {
       _specialCooldown = math.max(0.0, _specialCooldown - step).toDouble();
+    }
+    if (_specialClock > 0) {
+      _specialClock = math.max(0.0, _specialClock - step).toDouble();
     }
     _waveElapsed += step;
     if (_playerInvulnerable > 0) {
@@ -351,6 +419,7 @@ class DragonLunaryvellGame extends FlameGame {
   bool activateSpecial() {
     if (_paused || _gameOver || _specialCooldown > 0) return false;
     _specialCooldown = 12.0;
+    _specialClock = .65;
     switch (dragon.id) {
       case 'temperstryx':
       case 'nyxariel':
@@ -485,9 +554,22 @@ class DragonLunaryvellGame extends FlameGame {
       }
     }
     if (_boss case final boss?) {
-      canvas.drawCircle(Offset(boss.x, boss.y), boss.radius + 8,
-          Paint()..color = const Color(0xFFFF5577).withOpacity(.18));
-      canvas.drawCircle(Offset(boss.x, boss.y), boss.radius, red);
+      if (_run31BossImage case final bossArt?) {
+        canvas.drawImageRect(
+          bossArt,
+          Rect.fromLTWH(0, 0, bossArt.width.toDouble(), bossArt.height.toDouble()),
+          Rect.fromCenter(
+            center: Offset(boss.x, boss.y),
+            width: 126,
+            height: 96,
+          ),
+          Paint()..filterQuality = FilterQuality.medium,
+        );
+      } else {
+        canvas.drawCircle(Offset(boss.x, boss.y), boss.radius + 8,
+            Paint()..color = const Color(0xFFFF5577).withOpacity(.18));
+        canvas.drawCircle(Offset(boss.x, boss.y), boss.radius, red);
+      }
       final bar = Rect.fromLTWH(size.x * .2, 54, size.x * .6, 7);
       canvas.drawRRect(RRect.fromRectAndRadius(bar, const Radius.circular(4)),
           white..color = const Color(0xFF482638));
@@ -498,14 +580,34 @@ class DragonLunaryvellGame extends FlameGame {
               const Radius.circular(4)),
           red);
     }
-    // Temporary vector stand-in. Replace with approved transparent 2D sprite frames.
+    // Run 31 ability effect: brief, fading, and drawn behind the player.
+    final effectArt = _run31AbilityImages[dragon.id];
+    if (_specialClock > 0 && effectArt != null) {
+      final width = math.min(size.x * .78, 270.0).toDouble();
+      final height = width * effectArt.height / effectArt.width;
+      canvas.drawImageRect(
+        effectArt,
+        Rect.fromLTWH(
+            0, 0, effectArt.width.toDouble(), effectArt.height.toDouble()),
+        Rect.fromCenter(
+          center: Offset(_playerX, _playerY - 12),
+          width: width,
+          height: height,
+        ),
+        Paint()
+          ..filterQuality = FilterQuality.medium
+          ..color = Colors.white.withOpacity(
+              (_specialClock / .65).clamp(0.0, 1.0).toDouble()),
+      );
+    }
+    // Preserve the existing animated ASTRALIS sprite and vector fallback.
     final path = Path()
       ..moveTo(_playerX, _playerY - 22)
       ..quadraticBezierTo(_playerX + 22, _playerY + 5, _playerX, _playerY + 15)
       ..quadraticBezierTo(_playerX - 22, _playerY + 5, _playerX, _playerY - 22)
       ..close();
     if (_playerInvulnerable <= 0 || (_playerInvulnerable * 12).floor().isEven) {
-      if (_flightFrames.isNotEmpty) {
+      if (dragon.id == 'astralis' && _flightFrames.isNotEmpty) {
         final frame = _flightFrames[_flightFrame];
         canvas.drawImageRect(
           frame,
@@ -514,6 +616,18 @@ class DragonLunaryvellGame extends FlameGame {
             center: Offset(_playerX, _playerY),
             width: 86,
             height: 114,
+          ),
+          Paint()..filterQuality = FilterQuality.high,
+        );
+      } else if (_run31DragonStills[dragon.id] case final dragonArt?) {
+        canvas.drawImageRect(
+          dragonArt,
+          Rect.fromLTWH(
+              0, 0, dragonArt.width.toDouble(), dragonArt.height.toDouble()),
+          Rect.fromCenter(
+            center: Offset(_playerX, _playerY),
+            width: 90,
+            height: 108,
           ),
           Paint()..filterQuality = FilterQuality.high,
         );

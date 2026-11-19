@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
 import 'game/dragon_lunaryvell_game.dart';
+import 'game/dragon_profile.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +50,20 @@ class DragonLunaryvellApp extends StatelessWidget {
                           _HudPill(label: 'SCORE', value: '${state.score}'),
                           _HudPill(label: 'WAVE', value: '${state.wave}'),
                           _HudPill(label: 'HULL', value: '${state.health}'),
-                          _HudPill(label: 'DRAGON', value: state.dragonName),
+                          PopupMenuButton<DragonProfile>(
+                            tooltip: 'Choose your dragon',
+                            onSelected: (profile) {
+                              game.selectDragon(profile);
+                            },
+                            itemBuilder: (context) => DragonProfile.all
+                                .map((profile) => PopupMenuItem(
+                                      value: profile,
+                                      child: Text(profile.name),
+                                    ))
+                                .toList(),
+                            child: _HudPill(
+                                label: 'DRAGON', value: state.dragonName),
+                          ),
                         ],
                       ),
                     ),
