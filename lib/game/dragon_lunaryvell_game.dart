@@ -97,8 +97,21 @@ class DragonLunaryvellGame extends FlameGame {
   double _flightClock = 0;
   int _flightFrame = 0;
   final Map<String, ui.Image> _run31DragonStills = {};
+  final Map<String, List<ui.Image>> _run32DragonFlights = {};
+  List<ui.Image> _run32PlayerBoltFrames = [];
+  List<ui.Image> _run32EnemyBoltFrames = [];
   final Map<String, ui.Image> _run31AbilityImages = {};
   ui.Image? _run31BossImage;
+  // Sprite file names use 'tempestryx'; the existing profile ID is
+  // 'temperstryx'. Keep that historical ID so saves and selection still work.
+  static const Map<String, String> _run32DragonPaths = {
+    'temperstryx': 'tempestryx',
+    'ignivar': 'ignivar',
+    'nyxariel': 'nyxariel',
+    'solarion': 'solarion',
+    'aquaryth': 'aquaryth',
+  };
+  static const List<int> _run32WingCycle = [0, 1, 2, 3, 2, 1];
   static const Map<String, String> _run31DragonPaths = {
     'temperstryx': 'run31/dragons/tempestryx_flight_base.png',
     'ignivar': 'run31/dragons/ignivar_flight_base.png',
@@ -137,6 +150,32 @@ class DragonLunaryvellGame extends FlameGame {
     // Decode optional Run 31 artwork in the background, not on the critical
     // path for the existing eight-frame ASTRALIS animation.
     unawaited(_preloadRun31Assets());
+    // These projectile sprites already ship with the project. Render their
+    // three-frame art when available; leave the proven shape fallback intact.
+    unawaited(_preloadRun32Projectiles());
+  }
+
+  Future<void> _preloadRun32Projectiles() async {
+    try {
+      _run32PlayerBoltFrames = await Future.wait(List.generate(
+        3,
+        (i) => images.load(
+          'projectiles/player/celestial_bolt_${i.toString().padLeft(2, '0')}.png',
+        ),
+      ));
+    } catch (error) {
+      debugPrint('Existing player projectile sprites unavailable: $error');
+    }
+    try {
+      _run32EnemyBoltFrames = await Future.wait(List.generate(
+        3,
+        (i) => images.load(
+          'projectiles/enemy/ember_bolt_${i.toString().padLeft(2, '0')}.png',
+        ),
+      ));
+    } catch (error) {
+      debugPrint('Existing enemy projectile sprites unavailable: $error');
+    }
   }
 
   Future<void> _preloadRun31Assets() async {
@@ -186,15 +225,31 @@ class DragonLunaryvellGame extends FlameGame {
 
   Future<void> selectDragon(DragonProfile profile) async {
     if (profile.id == dragon.id) return;
-    // ASTRALIS keeps its proven animated cycle. Other dragon poses are
-    // static until their individual wing-animation sequences are ready.
-    final stillPath = _run31DragonPaths[profile.id];
-    if (stillPath != null && !_run31DragonStills.containsKey(profile.id)) {
+    // ASTRALIS retains its original eight-frame animation. The other five
+    // dragons use their own four illustrated wing positions in a six-step
+    // forward/reverse cycle; Run 31 still art remains a safe fallback.
+    final flightName = _run32DragonPaths[profile.id];
+    if (flightName != null && !_run32DragonFlights.containsKey(profile.id)) {
       try {
-        _run31DragonStills[profile.id] = await images.load(stillPath);
+        _run32DragonFlights[profile.id] = await Future.wait(List.generate(
+          4,
+          (i) => images.load(
+            'run32/dragons/$flightName/flight/${flightName}_flight_${i.toString().padLeft(2, '0')}.png',
+          ),
+        ));
       } catch (error) {
-        debugPrint('Run 31 dragon art unavailable: $error');
-        return;
+        debugPrint('Run 32 dragon animation unavailable: $error');
+      }
+    }
+    if (!_run32DragonFlights.containsKey(profile.id)) {
+      final stillPath = _run31DragonPaths[profile.id];
+      if (stillPath != null && !_run31DragonStills.containsKey(profile.id)) {
+        try {
+          _run31DragonStills[profile.id] = await images.load(stillPath);
+        } catch (error) {
+          debugPrint('Run 31 dragon art unavailable: $error');
+          return;
+        }
       }
     }
     final effectPath = _run31AbilityPaths[profile.id];
@@ -511,22 +566,44 @@ class DragonLunaryvellGame extends FlameGame {
     final red = Paint()..color = const Color(0xFFFF667E);
 
     for (final bolt in _bolts) {
-      canvas.drawRRect(
-          RRect.fromRectAndRadius(
-              Rect.fromCenter(
-                  center: Offset(bolt.x, bolt.y), width: 4, height: 18),
-              const Radius.circular(3)),
-          gold);
+      if (_run32PlayerBoltFrames.isNotEmpty) {
+        final frame = _run32PlayerBoltFrames[
+            _flightFrame % _run32PlayerBoltFrames.length];
+        canvas.drawImageRect(
+          frame,
+          Rect.fromLTWH(0, 0, frame.width.toDouble(), frame.height.toDouble()),
+          Rect.fromCenter(center: Offset(bolt.x, bolt.y), width: 16, height: 28),
+          Paint()..filterQuality = FilterQuality.medium,
+        );
+      } else {
+        canvas.drawRRect(
+            RRect.fromRectAndRadius(
+                Rect.fromCenter(
+                    center: Offset(bolt.x, bolt.y), width: 4, height: 18),
+                const Radius.circular(3)),
+            gold);
+      }
     }
     for (final shot in _enemyBolts) {
-      canvas.drawCircle(
-          Offset(shot.x, shot.y), 5, Paint()..color = const Color(0xFFFF7895));
-      canvas.drawCircle(
-          Offset(shot.x, shot.y),
-          9,
-          Paint()
-            ..color = const Color(0x55FF7895)
-            ..style = PaintingStyle.stroke);
+      if (_run32EnemyBoltFrames.isNotEmpty) {
+        final frame = _run32EnemyBoltFrames[
+            _flightFrame % _run32EnemyBoltFrames.length];
+        canvas.drawImageRect(
+          frame,
+          Rect.fromLTWH(0, 0, frame.width.toDouble(), frame.height.toDouble()),
+          Rect.fromCenter(center: Offset(shot.x, shot.y), width: 22, height: 22),
+          Paint()..filterQuality = FilterQuality.medium,
+        );
+      } else {
+        canvas.drawCircle(Offset(shot.x, shot.y), 5,
+            Paint()..color = const Color(0xFFFF7895));
+        canvas.drawCircle(
+            Offset(shot.x, shot.y),
+            9,
+            Paint()
+              ..color = const Color(0x55FF7895)
+              ..style = PaintingStyle.stroke);
+      }
     }
     for (final foe in _foes) {
       if (foe.typeIndex >= 0 && foe.typeIndex < _enemyFrames.length &&
@@ -616,6 +693,19 @@ class DragonLunaryvellGame extends FlameGame {
             center: Offset(_playerX, _playerY),
             width: 86,
             height: 114,
+          ),
+          Paint()..filterQuality = FilterQuality.high,
+        );
+      } else if (_run32DragonFlights[dragon.id] case final frames?) {
+        final frame = frames[
+            _run32WingCycle[_flightFrame % _run32WingCycle.length]];
+        canvas.drawImageRect(
+          frame,
+          Rect.fromLTWH(0, 0, frame.width.toDouble(), frame.height.toDouble()),
+          Rect.fromCenter(
+            center: Offset(_playerX, _playerY),
+            width: 96,
+            height: 108,
           ),
           Paint()..filterQuality = FilterQuality.high,
         );
