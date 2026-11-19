@@ -1,0 +1,39 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:dragon_lunaryvell/main.dart';
+
+void main() {
+  testWidgets('menu appears before starting the game', (tester) async {
+    await tester.pumpWidget(const DragonLunaryvellApp());
+    expect(find.text('DRAGON'), findsOneWidget);
+    expect(find.text('LUNARYVELL'), findsOneWidget);
+    expect(find.text('BEGIN FLIGHT'), findsOneWidget);
+    expect(find.text('CAMPAIGN  ·  STORY MODE'), findsOneWidget);
+    expect(find.text('HOW TO PLAY'), findsOneWidget);
+  });
+
+  testWidgets('campaign asks before beginning story flight', (tester) async {
+    await tester.pumpWidget(const DragonLunaryvellApp());
+    await tester.tap(find.text('CAMPAIGN  ·  STORY MODE'));
+    await tester.pumpAndSettle();
+    expect(find.text('THE SHATTERED MOONHEART'), findsOneWidget);
+    expect(find.text('TAKE FLIGHT'), findsOneWidget);
+    await tester.tap(find.text('NOT YET'));
+    await tester.pumpAndSettle();
+    expect(find.text('BEGIN FLIGHT'), findsOneWidget);
+  });
+
+  testWidgets('all six dragons are available before play', (tester) async {
+    await tester.pumpWidget(const DragonLunaryvellApp());
+    await tester.tap(find.text('DRAGON: ASTRALIS'));
+    await tester.pumpAndSettle();
+    for (final name in [
+      'ASTRALIS', 'TEMPESTRYX', 'IGNIVAR',
+      'NYXARIEL', 'SOLARION', 'AQUARYTH',
+    ]) {
+      expect(find.text(name), findsOneWidget);
+    }
+    await tester.tap(find.text('NYXARIEL'));
+    await tester.pumpAndSettle();
+    expect(find.text('DRAGON: NYXARIEL'), findsOneWidget);
+  });
+}
