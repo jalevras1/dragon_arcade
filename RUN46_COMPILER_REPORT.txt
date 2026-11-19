@@ -1,0 +1,165 @@
+Verifying: /home/codespace/.python/current/bin/python3 tools/run43_verify.py
+crystal_gargoyle: 12 continuous full-size wing poses, peak alpha change 4.77
+ember_manticore: 12 continuous full-size wing poses, peak alpha change 3.68
+void_moth: 12 continuous full-size wing poses, peak alpha change 7.28
+RUN 43 PREFLIGHT PASS: 36 animated premium enemy frames, 48 magical bolts, six gallery enemies, wave-safe introduction and no changes to existing dragons, bosses, chapter scenes or navigation
+Verifying: /home/codespace/.python/current/bin/python3 tools/run44_verify.py
+RUN 44 PREFLIGHT PASS — six magic motifs; directional trails; six locked enemy flight/volley archetypes; wave-scaled overshields; short hit effects; 28-effect cap; Run 43 assets retained.
+Verifying: /home/codespace/.python/current/bin/python3 tools/run45_verify.py
+RUN 45 PREFLIGHT PASS — five illustrated boss identities, three readable phases, committed warning lanes, guarded shields, bounded volleys, brief defeat effects and preserved Run 44 combat.
+Verifying: /home/codespace/.python/current/bin/python3 tools/run46_verify.py
+RUN 46 PREFLIGHT PASS — four chapter images no longer gate startup; parallel first-wave enemy decode; smooth late chapter fades; bounded FPS diagnostics; faster distance math; obsolete opacity calls removed; Run 45 boss and Run 44 enemy contracts retained.
+Verifying: /home/codespace/flutter/bin/flutter analyze --no-fatal-infos --no-fatal-warnings lib/game/dragon_lunaryvell_game.dart lib/game/frame_pacing_meter.dart lib/game/boss_encounter_rules.dart lib/game/boss_encounter_fx.dart lib/game/premium_projectile_fx.dart lib/game/enemy_archetypes.dart lib/ui/dragon_shell.dart test/run44_premium_projectile_fx_test.dart test/run44_enemy_archetypes_test.dart test/run45_boss_encounters_test.dart test/run46_frame_pacing_test.dart
+Analyzing 11 items...                                           
+
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/boss_encounter_fx.dart:4:1 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_lunaryvell_game.dart:5:1 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/premium_projectile_fx.dart:4:1 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/ui/dragon_shell.dart:5:1 • deprecated_member_use
+   info • Unnecessary 'const' keyword. Try removing the keyword • lib/ui/dragon_shell.dart:1052:30 • unnecessary_const
+
+5 issues found. (ran in 9.1s)
+Verifying: /home/codespace/flutter/bin/flutter test test/widget_test.dart test/special_ability_rules_test.dart test/campaign_story_test.dart test/dragon_flight_cycle_test.dart test/run44_premium_projectile_fx_test.dart test/run44_enemy_archetypes_test.dart test/run45_boss_encounters_test.dart test/run46_frame_pacing_test.dart
+00:00 +0: loading /workspaces/dragon_arcade/test/widget_test.dart
+00:00 +0: /workspaces/dragon_arcade/test/widget_test.dart: menu appears before starting the game
+00:01 +1: /workspaces/dragon_arcade/test/widget_test.dart: campaign asks before beginning story flight
+00:01 +2: /workspaces/dragon_arcade/test/widget_test.dart: all six dragons are available before play
+00:01 +3: loading /workspaces/dragon_arcade/test/special_ability_rules_test.dart
+00:02 +3: /workspaces/dragon_arcade/test/special_ability_rules_test.dart: all six approved dragons have distinct implemented powers
+00:02 +4: loading /workspaces/dragon_arcade/test/campaign_story_test.dart
+00:02 +4: /workspaces/dragon_arcade/test/campaign_story_test.dart: five story chapters share existing five-wave boss milestones
+00:02 +5: loading /workspaces/dragon_arcade/test/dragon_flight_cycle_test.dart
+00:03 +5: /workspaces/dragon_arcade/test/dragon_flight_cycle_test.dart: four-pose dragons follow the same 0.8s rhythm as ASTRALIS
+00:03 +6: /workspaces/dragon_arcade/test/dragon_flight_cycle_test.dart: paused, invalid and first frames have safe values
+00:03 +7: loading /workspaces/dragon_arcade/test/run44_premium_projectile_fx_test.dart
+00:04 +7: /workspaces/dragon_arcade/test/run44_premium_projectile_fx_test.dart: all six approved dragon elements have a distinct color theme
+00:04 +8: /workspaces/dragon_arcade/test/run44_premium_projectile_fx_test.dart: premium projectile painters record without changing game state
+00:04 +9: loading /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart
+00:05 +9: /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart: six enemy species have locked unique flight and attack identities
+00:05 +10: /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart: overshields are stronger and independent of health
+00:05 +11: /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart: patterns remain smooth at 50 Hz and shot cadence stays bounded
+00:05 +12: loading /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart
+00:06 +12: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: five bosses match chapter art with fixed elemental identities
+00:06 +13: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: boss phases change at readable health thresholds
+00:06 +14: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: each chapter has distinct bounded volleys that travel downward
+00:06 +15: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: boss flight does not jump between 50Hz frames
+00:06 +16: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: boss aura, health/shield HUD and warnings paint without layers
+00:06 +17: loading /workspaces/dragon_arcade/test/run46_frame_pacing_test.dart
+00:07 +17: /workspaces/dragon_arcade/test/run46_frame_pacing_test.dart: 60 Hz frames result in stable 60 FPS without false slow frames
+00:07 +18: /workspaces/dragon_arcade/test/run46_frame_pacing_test.dart: slow frame counts are visible and background gaps are ignored
+00:07 +19: All tests passed!
+Verifying: /home/codespace/flutter/bin/flutter build web --release --no-pub --no-wasm-dry-run --verbose --dart-define=DL_DEV_TOOLS=true --dart-define=DL_TEST_BUILD=RUN46
+[  +78 ms] Unable to locate an Android SDK.
+[  +32 ms] Unable to locate an Android SDK.
+[  +10 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[  +15 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +58 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[  +30 ms] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[ +129 ms] generated_plugin_registrant.dart not found. Skipping.
+[   +6 ms] Compiling lib/main.dart for the Web...
+[  +18 ms] Initializing file store
+[   +3 ms] Done initializing file store
+[ +104 ms] Skipping target: web_entrypoint
+[   +4 ms] Skipping target: build_hooks
+[        ] Skipping target: gen_localizations
+[   +5 ms] web_static_assets: Starting due to {InvalidatedReasonKind.outputMissing: The following outputs were missing: /workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/flutter.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/flutter.js.map,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/skwasm_heavy.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/skwasm_heavy.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/skwasm.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/skwasm.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/skwasm_heavy.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/canvaskit.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/wimp.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/chromium/canvaskit.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/chromium/canvaskit.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/chromium/canvaskit.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/canvaskit.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/wimp.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/wimp.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/skwasm.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/canvaskit.js,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/webparagraph/canvaskit.js.symbols,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/webparagraph/canvaskit.wasm,/workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/canvaskit/webparagraph/canvaskit.js}
+[ +353 ms] dart2js: Starting due to {}
+[   +9 ms] executing: /home/codespace/flutter/bin/cache/dart-sdk/bin/dart compile js --platform-binaries=/home/codespace/flutter/bin/cache/flutter_web_sdk/kernel --invoker=flutter_tool -Ddart.vm.product=true -DDL_DEV_TOOLS=true -DDL_TEST_BUILD=RUN46 -DFLUTTER_BUILD_NAME=0.1.0 -DFLUTTER_BUILD_NUMBER=35 -DFLUTTER_VERSION=3.50.0 -DFLUTTER_CHANNEL=stable -DFLUTTER_GIT_URL=https://github.com/flutter/flutter.git -DFLUTTER_FRAMEWORK_REVISION=ab2912035e -DFLUTTER_ENGINE_REVISION=371f77202a -DFLUTTER_DART_VERSION=3.14.0 -DFLUTTER_WEB_USE_SKIA=true -DFLUTTER_WEB_USE_SKWASM=false -DFLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/371f77202a73e8dff57a8b3bff75bca55c090aee/ --write-resources --native-null-assertions --no-source-maps -O4 --minify -o /workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/app.dill --packages=/workspaces/dragon_arcade/.dart_tool/package_config.json --cfe-only /workspaces/dragon_arcade/.dart_tool/flutter_build/02123a8caeb407165c6a277645de9b49/main.dart
+[   +2 ms] web_static_assets: Complete
+[+7835 ms] Persisting file store
+[   +8 ms] Done persisting file store
+[   +9 ms] Target dart2js failed: Error: Failed to compile application for the Web.
+[   +4 ms] Compiling lib/main.dart for the Web... (completed in 8.4s)
+[   +1 ms] "flutter web" took 8,614ms.
+[   +4 ms] Error: Failed to compile application for the Web.
+[   +1 ms] 
+           #0      throwToolExit (package:flutter_tools/src/base/common.dart:36:3)
+           #1      WebBuilder.buildWeb (package:flutter_tools/src/web/compile.dart:175:7)
+           <asynchronous suspension>
+           #2      BuildWebCommand.runCommand (package:flutter_tools/src/commands/build_web.dart:236:5)
+           <asynchronous suspension>
+           #3      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1268:27)
+           <asynchronous suspension>
+           #4      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #5      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+           <asynchronous suspension>
+           #6      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:651:9)
+           <asynchronous suspension>
+           #7      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #8      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:585:5)
+           <asynchronous suspension>
+           #9      FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:355:5)
+           <asynchronous suspension>
+           #10     run.<anonymous closure>.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:167:15)
+           <asynchronous suspension>
+           #11     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #12     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #13     main (package:flutter_tools/executable.dart:115:3)
+           <asynchronous suspension>
+
+
+[   +1 ms] Running 2 shutdown hooks
+[   +1 ms] Shutdown hooks complete
+[   +1 ms] exiting with code 1
+
+RUN 46 FAILED: Command '['/home/codespace/flutter/bin/flutter', 'build', 'web', '--release', '--no-pub', '--no-wasm-dry-run', '--verbose', '--dart-define=DL_DEV_TOOLS=true', '--dart-define=DL_TEST_BUILD=RUN46']' returned non-zero exit status 1.
+Restoring previous Run 45 code and web build...
+ROLLBACK COMPLETE — prior working Run 45 version restored.
