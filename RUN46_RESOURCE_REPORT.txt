@@ -1,0 +1,28 @@
+MEMORY
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       6.9Gi       186Mi        69Mi       1.1Gi       915Mi
+Swap:             0B          0B          0B
+DISK
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/loop4       32G   16G   15G  53% /workspaces
+/dev/sdb1        44G  3.4G   39G   8% /tmp
+CGROUP MEMORY
+/sys/fs/cgroup/memory.max
+max
+/sys/fs/cgroup/memory.events
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+/sys/fs/cgroup/memory.current
+5162397696
+RECENT KERNEL MESSAGES
+dmesg: read kernel buffer failed: Operation not permitted
+COMPILER STATUS
+00:07 +19: All tests passed!
+[   +9 ms] Target dart2js failed: Error: Failed to compile application for the Web.
+[   +4 ms] Error: Failed to compile application for the Web.
+[   +1 ms] exiting with code 1
+ROLLBACK COMPLETE — prior working Run 45 version restored.
