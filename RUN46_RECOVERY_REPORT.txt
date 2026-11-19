@@ -1,0 +1,144 @@
+
+=== Codespaces resource snapshot ===
+free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       6.2Gi       505Mi        69Mi       1.5Gi       1.6Gi
+Swap:             0B          0B          0B
+ps -eo pid,rss,comm --sort=-rss
+    PID   RSS COMMAND
+  80571 330712 MainThread
+  17726 330276 MainThread
+  39432 327060 MainThread
+  26440 324804 MainThread
+  15966 324412 MainThread
+  49206 324184 MainThread
+  45557 323284 MainThread
+   3806 319156 MainThread
+    499 309056 MainThread
+    458 241844 MainThread
+    679 130468 MainThread
+   1053 52316 MainThread
+ 120665 35184 MainThread
+ 117397 35160 MainThread
+  98117 34852 MainThread
+ 114264 34536 MainThread
+ 106057 34480 MainThread
+  93900 34244 MainThread
+  78703 34104 MainThread
+  15979 32640 MainThread
+  39451 32428 MainThread
+  67438 32284 MainThread
+  26453 32192 MainThread
+  49248 32168 MainThread
+
+=== Flutter web build attempt ===
+/home/codespace/flutter/bin/flutter build web --release --no-pub --no-wasm-dry-run --optimization-level=2 --dart-define=DL_DEV_TOOLS=true --dart-define=DL_TEST_BUILD=RUN46
+Compiling lib/main.dart for the Web...                          
+Target dart2js failed: Error: Failed to compile application for the Web.
+Compiling lib/main.dart for the Web...                              9.1s
+Error: Failed to compile application for the Web.
+BUILD RETURN CODE: 1; elapsed 9.6s
+
+=== Codespaces resource snapshot ===
+free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       6.8Gi       370Mi        69Mi       1.0Gi       1.0Gi
+Swap:             0B          0B          0B
+ps -eo pid,rss,comm --sort=-rss
+    PID   RSS COMMAND
+ 122525 430052 MainThread
+  80571 330600 MainThread
+  17726 330268 MainThread
+  39432 327052 MainThread
+  26440 324796 MainThread
+  15966 324404 MainThread
+  49206 324176 MainThread
+  45557 323280 MainThread
+   3806 319148 MainThread
+    499 309048 MainThread
+    458 241980 MainThread
+    679 130456 MainThread
+   1053 52308 MainThread
+ 120665 35128 MainThread
+ 117397 35060 MainThread
+  98117 34908 MainThread
+ 106057 34532 MainThread
+ 114264 34436 MainThread
+  93900 34252 MainThread
+  78703 34112 MainThread
+  15979 32640 MainThread
+  39451 32428 MainThread
+  67438 32288 MainThread
+  26453 32192 MainThread
+
+=== Codespaces resource snapshot ===
+free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       6.8Gi       370Mi        69Mi       1.0Gi       1.0Gi
+Swap:             0B          0B          0B
+ps -eo pid,rss,comm --sort=-rss
+    PID   RSS COMMAND
+ 122525 430052 MainThread
+  80571 330600 MainThread
+  17726 330268 MainThread
+  39432 327052 MainThread
+  26440 324796 MainThread
+  15966 324404 MainThread
+  49206 324176 MainThread
+  45557 323280 MainThread
+   3806 319148 MainThread
+    499 309048 MainThread
+    458 241980 MainThread
+    679 130456 MainThread
+   1053 52308 MainThread
+ 120665 35128 MainThread
+ 117397 35060 MainThread
+  98117 34908 MainThread
+ 106057 34532 MainThread
+ 114264 34436 MainThread
+  93900 34252 MainThread
+  78703 34112 MainThread
+  15979 32640 MainThread
+  39451 32428 MainThread
+  67438 32288 MainThread
+  26453 32192 MainThread
+
+=== Flutter web build attempt ===
+/home/codespace/flutter/bin/flutter build web --debug --no-pub --no-wasm-dry-run --dart-define=DL_DEV_TOOLS=true --dart-define=DL_TEST_BUILD=RUN46_DEBUG
+Compiling lib/main.dart for the Web...                          
+Target dart2js failed: Error: Failed to compile application for the Web.
+Compiling lib/main.dart for the Web...                             30.4s
+Error: Failed to compile application for the Web.
+BUILD RETURN CODE: 1; elapsed 31.2s
+
+=== Codespaces resource snapshot ===
+free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       6.4Gi       736Mi        69Mi       1.0Gi       1.3Gi
+Swap:             0B          0B          0B
+ps -eo pid,rss,comm --sort=-rss
+    PID   RSS COMMAND
+  80571 330492 MainThread
+  17726 329972 MainThread
+  39432 327020 MainThread
+  26440 324764 MainThread
+  49206 324172 MainThread
+  15966 324108 MainThread
+  45557 323268 MainThread
+   3806 319104 MainThread
+    499 309008 MainThread
+    458 240368 MainThread
+ 123935 239328 MainThread
+    679 130220 MainThread
+   1053 51972 MainThread
+ 106057 34832 MainThread
+  98117 34812 MainThread
+ 117397 34804 MainThread
+ 120665 34740 MainThread
+ 114264 34572 MainThread
+  78703 34148 MainThread
+  93900 34144 MainThread
+  15979 32640 MainThread
+  39451 32368 MainThread
+  67438 32304 MainThread
+  26453 32164 MainThread
