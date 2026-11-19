@@ -1,0 +1,84 @@
+RUN 47 V4 RECOVERY REPORT
+RuntimeError('Check failed, return code 1: /home/codespace/flutter/bin/flutter test test/widget_test.dart test/special_ability_rules_test.dart test/campaign_story_test.dart test/dragon_flight_cycle_test.dart test/run44_premium_projectile_fx_test.dart test/run44_enemy_archetypes_test.dart test/run45_boss_encounters_test.dart test/run46_frame_pacing_test.dart test/run47_story_relics_test.dart')
+
+=== DEPENDENCIES ===
+Resolving dependencies...
+Downloading packages...
+  flutter_lints 4.0.0 (6.0.0 available)
+  lints 4.0.0 (6.1.0 available)
+Got dependencies!
+2 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+
+=== ANALYZER ===
+Analyzing 10 items...                                           
+
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/boss_encounter_fx.dart:4:1 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_lunaryvell_game.dart:5:1 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/ui/dragon_shell.dart:5:1 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/ui/dragon_shell.dart:1328:19 • prefer_const_constructors
+
+4 issues found. (ran in 4.8s)
+
+=== TESTS ===
+00:00 +0: loading /workspaces/dragon_arcade/test/widget_test.dart
+00:00 +0: /workspaces/dragon_arcade/test/widget_test.dart: menu appears before starting the game
+00:01 +1: /workspaces/dragon_arcade/test/widget_test.dart: campaign asks before beginning story flight
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with text "NOT YET": []" (used in a call to "tap()") could not find any
+matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2094:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1946:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1079:7)
+#3      main.<anonymous closure> (file:///workspaces/dragon_arcade/test/widget_test.dart:20:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1968:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  campaign asks before beginning story flight
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +1 -1: /workspaces/dragon_arcade/test/widget_test.dart: campaign asks before beginning story flight [E]
+  Test failed. See exception logs above.
+  The test description was: campaign asks before beginning story flight
+  
+00:03 +1 -1: /workspaces/dragon_arcade/test/widget_test.dart: all six dragons are available before play
+00:04 +2 -1: loading /workspaces/dragon_arcade/test/special_ability_rules_test.dart
+00:05 +2 -1: /workspaces/dragon_arcade/test/special_ability_rules_test.dart: all six approved dragons have distinct implemented powers
+00:05 +3 -1: loading /workspaces/dragon_arcade/test/campaign_story_test.dart
+00:06 +3 -1: /workspaces/dragon_arcade/test/campaign_story_test.dart: five story chapters share existing five-wave boss milestones
+00:06 +4 -1: loading /workspaces/dragon_arcade/test/dragon_flight_cycle_test.dart
+00:07 +4 -1: /workspaces/dragon_arcade/test/dragon_flight_cycle_test.dart: four-pose dragons follow the same 0.8s rhythm as ASTRALIS
+00:07 +5 -1: /workspaces/dragon_arcade/test/dragon_flight_cycle_test.dart: paused, invalid and first frames have safe values
+00:07 +6 -1: loading /workspaces/dragon_arcade/test/run44_premium_projectile_fx_test.dart
+00:07 +6 -1: /workspaces/dragon_arcade/test/run44_premium_projectile_fx_test.dart: all six approved dragon elements have a distinct color theme
+00:08 +7 -1: /workspaces/dragon_arcade/test/run44_premium_projectile_fx_test.dart: premium projectile painters record without changing game state
+00:08 +8 -1: loading /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart
+00:09 +8 -1: /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart: six enemy species have locked unique flight and attack identities
+00:09 +9 -1: /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart: overshields are stronger and independent of health
+00:09 +10 -1: /workspaces/dragon_arcade/test/run44_enemy_archetypes_test.dart: patterns remain smooth at 50 Hz and shot cadence stays bounded
+00:09 +11 -1: loading /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart
+00:11 +11 -1: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: five bosses match chapter art with fixed elemental identities
+00:11 +12 -1: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: boss phases change at readable health thresholds
+00:11 +13 -1: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: each chapter has distinct bounded volleys that travel downward
+00:11 +14 -1: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: boss flight does not jump between 50Hz frames
+00:11 +15 -1: /workspaces/dragon_arcade/test/run45_boss_encounters_test.dart: boss aura, health/shield HUD and warnings paint without layers
+00:11 +16 -1: loading /workspaces/dragon_arcade/test/run46_frame_pacing_test.dart
+00:12 +16 -1: /workspaces/dragon_arcade/test/run46_frame_pacing_test.dart: 60 Hz frames result in stable 60 FPS without false slow frames
+00:12 +17 -1: /workspaces/dragon_arcade/test/run46_frame_pacing_test.dart: slow frame counts are visible and background gaps are ignored
+00:13 +18 -1: loading /workspaces/dragon_arcade/test/run47_story_relics_test.dart
+00:14 +18 -1: /workspaces/dragon_arcade/test/run47_story_relics_test.dart: each boss has a distinct ritual title for each escalation
+00:14 +19 -1: /workspaces/dragon_arcade/test/run47_story_relics_test.dart: six dragon mythology spans all five 5-wave acts
+00:14 +20 -1: /workspaces/dragon_arcade/test/run47_story_relics_test.dart: ten relics are reachable, bounded and illustrate the inventory
+00:14 +21 -1: /workspaces/dragon_arcade/test/run47_story_relics_test.dart: multi-fire retains one synchronized firing event
+00:14 +22 -1: Some tests failed.
+
+Failing tests:
+  /workspaces/dragon_arcade/test/widget_test.dart: campaign asks before beginning story flight
