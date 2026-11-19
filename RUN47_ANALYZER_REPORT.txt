@@ -1,0 +1,39 @@
+Verifying: /home/codespace/.python/current/bin/python3 tools/run43_verify.py
+crystal_gargoyle: 12 continuous full-size wing poses, peak alpha change 4.77
+ember_manticore: 12 continuous full-size wing poses, peak alpha change 3.68
+void_moth: 12 continuous full-size wing poses, peak alpha change 7.28
+RUN 43 PREFLIGHT PASS: 36 animated premium enemy frames, 48 magical bolts, six gallery enemies, wave-safe introduction and no changes to existing dragons, bosses, chapter scenes or navigation
+Verifying: /home/codespace/.python/current/bin/python3 tools/run44_verify.py
+RUN 44 PREFLIGHT PASS — six magic motifs; directional trails; six locked enemy flight/volley archetypes; wave-scaled overshields; short hit effects; 28-effect cap; Run 43 assets retained.
+Verifying: /home/codespace/.python/current/bin/python3 tools/run45_verify.py
+RUN 45 PREFLIGHT PASS — five illustrated boss identities, three readable phases, committed warning lanes, guarded shields, bounded volleys, brief defeat effects and preserved Run 44 combat.
+Verifying: /home/codespace/.python/current/bin/python3 tools/run46_verify.py
+RUN 46 PREFLIGHT PASS — four chapter images no longer gate startup; parallel first-wave enemy decode; smooth late chapter fades; bounded FPS diagnostics; faster distance math; obsolete opacity calls removed; Run 45 boss and Run 44 enemy contracts retained.
+Verifying: /home/codespace/.python/current/bin/python3 tools/run47_verify.py
+RUN 47 PREFLIGHT PASS — five illustrated acts, voiced captions, eight alpha relics, ten drops, six dragon voices, 20 original OGGs, bounded volleys and premium bosses.
+Verifying: /home/codespace/flutter/bin/flutter analyze --no-fatal-infos --no-fatal-warnings lib/game/dragon_lunaryvell_game.dart lib/game/boss_encounter_fx.dart lib/game/boss_encounter_rules.dart lib/game/run47_cinematic_story.dart lib/game/run47_relic_rules.dart lib/game/run47_audio.dart lib/game/run47_audio_stub.dart lib/game/run47_audio_web.dart lib/ui/dragon_shell.dart test/run47_story_relics_test.dart
+Analyzing 10 items...                                           
+
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/boss_encounter_fx.dart:4:1 • deprecated_member_use
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/game/dragon_lunaryvell_game.dart:5:1 • deprecated_member_use
+  error • This requires the 'inline-class' language feature to be enabled. Try updating your pubspec.yaml to set the minimum SDK constraint to 3.3.0 or higher, and running 'pub get' • lib/game/run47_audio_web.dart:6:11 • experiment_not_enabled
+  error • Undefined class '_SpeechSynth'. Try changing the name to the name of an existing class, or creating a class with the name '_SpeechSynth' • lib/game/run47_audio_web.dart:16:10 • undefined_class
+  error • This requires the 'inline-class' language feature to be enabled. Try updating your pubspec.yaml to set the minimum SDK constraint to 3.3.0 or higher, and running 'pub get' • lib/game/run47_audio_web.dart:19:11 • experiment_not_enabled
+  error • This requires the 'inline-class' language feature to be enabled. Try updating your pubspec.yaml to set the minimum SDK constraint to 3.3.0 or higher, and running 'pub get' • lib/game/run47_audio_web.dart:30:11 • experiment_not_enabled
+  error • This requires the 'inline-class' language feature to be enabled. Try updating your pubspec.yaml to set the minimum SDK constraint to 3.3.0 or higher, and running 'pub get' • lib/game/run47_audio_web.dart:35:11 • experiment_not_enabled
+  error • Undefined class '_HtmlAudio'. Try changing the name to the name of an existing class, or creating a class with the name '_HtmlAudio' • lib/game/run47_audio_web.dart:43:3 • undefined_class
+  error • The name '_HtmlAudio' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named '_HtmlAudio' • lib/game/run47_audio_web.dart:45:14 • non_type_as_type_argument
+  error • The method '_HtmlAudio' isn't defined for the type 'Run47Audio'. Try correcting the name to the name of an existing method, or defining a method named '_HtmlAudio' • lib/game/run47_audio_web.dart:58:32 • undefined_method
+  error • The method '_HtmlAudio' isn't defined for the type 'Run47Audio'. Try correcting the name to the name of an existing method, or defining a method named '_HtmlAudio' • lib/game/run47_audio_web.dart:92:21 • undefined_method
+  error • The method '_SpeechUtterance' isn't defined for the type 'Run47Audio'. Try correcting the name to the name of an existing method, or defining a method named '_SpeechUtterance' • lib/game/run47_audio_web.dart:115:25 • undefined_method
+  error • Undefined name '_SpeechEvent'. Try correcting the name to one that is defined, or defining the name • lib/game/run47_audio_web.dart:126:32 • undefined_identifier
+   info • 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/ui/dragon_shell.dart:5:1 • deprecated_member_use
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/ui/dragon_shell.dart:254:62 • curly_braces_in_flow_control_structures
+   info • Unnecessary 'const' keyword. Try removing the keyword • lib/ui/dragon_shell.dart:1292:30 • unnecessary_const
+
+16 issues found. (ran in 6.0s)
+
+RUN 47 FAILED: Check failed, return code 1: /home/codespace/flutter/bin/flutter analyze --no-fatal-infos --no-fatal-warnings lib/game/dragon_lunaryvell_game.dart lib/game/boss_encounter_fx.dart lib/game/boss_encounter_rules.dart lib/game/run47_cinematic_story.dart lib/game/run47_relic_rules.dart lib/game/run47_audio.dart lib/game/run47_audio_stub.dart lib/game/run47_audio_web.dart lib/ui/dragon_shell.dart test/run47_story_relics_test.dart
+Restoring the previous working Run 46 game and website...
+ROLLBACK COMPLETE — prior working Run 46 restored.
+Send the first error and diagnostics to ChatGPT if this fails.
