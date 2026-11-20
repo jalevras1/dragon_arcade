@@ -1,0 +1,2 @@
+RUN 49 AUTOMATIC ROLLBACK REPORT
+RuntimeError('Check failed (exit 1): /home/codespace/.python/current/bin/python3 tools/run47_verify.py')
